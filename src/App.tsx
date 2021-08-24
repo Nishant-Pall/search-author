@@ -1,9 +1,72 @@
-import React from "react";
+/* eslint-disable array-callback-return */
+import React, { FC, useState } from "react";
+import axios from "axios";
+import Card from "./components/Card";
+import "./index.css";
 
 interface Props {}
 
-const App = (props: Props) => {
-    return <div></div>;
+const App: FC = (props: Props) => {
+    const [name, setName] = useState("");
+    const [response, setResponse] = useState([]);
+
+    const searchAuthor = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const response = await axios.get(
+            "https://openlibrary.org/search/authors.json",
+            {
+                params: {
+                    q: name,
+                },
+            }
+        );
+        setResponse(response.data.docs);
+        // console.log(response.data.docs);
+        console.log(typeof response.data.docs[0].work_count);
+    };
+
+    return (
+        <div className="container">
+            <div className="row">
+                <div className="col">
+                    <h1>Book World</h1>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    <form onSubmit={searchAuthor}>
+                        <div className="mb-3">
+                            <input
+                                value={name}
+                                onChange={(e) => {
+                                    setName(e.target.value);
+                                }}
+                                type="text"
+                                className="form-control"
+                                placeholder="Enter name of author and press enter to search"
+                            />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    {response.map((author: any) => {
+                        return (
+                            <div key={author.name}>
+                                <Card
+                                    name={author.name}
+                                    birthDate={author.birth_date}
+                                    topWork={author.top_work}
+                                    totalBooks={author.work_count}
+                                />
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default App;
