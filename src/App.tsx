@@ -51,11 +51,12 @@ const App: FC = (props: Props) => {
             </div>
             <div className="row">
                 <div className="col">
-                    {response.map((author: any) => {
+                    {response.map((author: any, index: number) => {
                         return (
-                            <div key={author.name}>
+                            <div key={index}>
                                 <Card
                                     name={author.name}
+                                    authorIndex={index}
                                     birthDate={author.birth_date}
                                     topWork={author.top_work}
                                     totalBooks={author.work_count}

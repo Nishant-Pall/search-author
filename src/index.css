@@ -8,3 +8,7 @@
 .container .row {
     width: 100%;
 }
+
+.card .card-body {
+    width: 300px;
+}

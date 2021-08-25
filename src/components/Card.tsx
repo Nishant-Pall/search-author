@@ -2,43 +2,49 @@ import React, { FC } from "react";
 
 interface Props {
     name: any;
-    birthDate: any;
-    topWork: any;
-    totalBooks: any;
+    authorIndex: number;
+    birthDate: any | undefined;
+    topWork: any | undefined;
+    totalBooks: any | undefined;
 }
 
-const Card: FC<Props> = ({ birthDate, topWork, totalBooks }: Props) => {
+const Card: FC<Props> = ({
+    name,
+    birthDate,
+    authorIndex,
+    topWork,
+    totalBooks,
+}: Props) => {
     console.log(topWork);
 
     return (
         <div className="container">
-            <h1>Hello</h1>
-            <div>
-                <h1>{birthDate}</h1>
-                <h1>{topWork}</h1>
-                <h1>{totalBooks}</h1>
-            </div>
-            <p>
-                <button
-                    className="btn btn-primary"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseWidthExample"
-                    aria-expanded="false"
-                    aria-controls="collapseWidthExample"
-                >
-                    Toggle width collapse
-                </button>
-            </p>
-            <div style={{ minHeight: "120px" }}>
-                <div
-                    className="collapse collapse-horizontal"
-                    id="collapseWidthExample"
-                >
-                    <div className="card card-body" style={{ width: "300px" }}>
-                        This is some placeholder content for a horizontal
-                        collapse. It's hidden by default and shown when
-                        triggered.
+            <div className="accordion" id="accordionExample">
+                <div className="accordion-item">
+                    <h2 className="accordion-header" id="headingTwo">
+                        <button
+                            className="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="collapseTwo"
+                        >
+                            {name}
+                        </button>
+                    </h2>
+                    <div
+                        id="collapseTwo"
+                        className="accordion-collapse collapse"
+                        aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample"
+                    >
+                        <p>Author Details</p>
+                        <ul>
+                            <li>Data of Birth: {birthDate}</li>
+                            <li>Top Work: {topWork}</li>
+                            <li>Total Books: {totalBooks}</li>
+                        </ul>
                     </div>
                 </div>
             </div>
