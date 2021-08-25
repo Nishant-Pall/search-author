@@ -13,6 +13,24 @@
     width: 50%;
 }
 
+.input-row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    margin-left: 20em;
+}
+
+.accordion-container {
+    margin: auto;
+    margin-left: 20em;
+}
+
+form {
+    width: 50%;
+}
+
 .accordion p {
     display: flex;
     margin: 1em;

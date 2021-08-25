@@ -32,7 +32,7 @@ const App: FC = (props: Props) => {
                     <h1>Book World</h1>
                 </div>
             </div>
-            <div className="row">
+            <div className="row input-row">
                 <div className="col">
                     <form onSubmit={searchAuthor}>
                         <div className="mb-3">
@@ -43,7 +43,7 @@ const App: FC = (props: Props) => {
                                 }}
                                 type="text"
                                 className="form-control"
-                                placeholder="Enter name of author and press enter to search"
+                                placeholder="Enter name to find matching authors and press enter to search"
                             />
                         </div>
                     </form>

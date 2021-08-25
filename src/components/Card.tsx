@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import Accordion from "react-bootstrap/Accordion";
 
 interface Props {
     name: any;
@@ -15,39 +16,23 @@ const Card: FC<Props> = ({
     topWork,
     totalBooks,
 }: Props) => {
-    console.log(topWork);
+    const authorId: string = String(authorIndex);
 
     return (
-        <div className="container">
-            <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingTwo">
-                        <button
-                            className="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo"
-                            aria-expanded="false"
-                            aria-controls="collapseTwo"
-                        >
-                            {name}
-                        </button>
-                    </h2>
-                    <div
-                        id="collapseTwo"
-                        className="accordion-collapse collapse"
-                        aria-labelledby="headingTwo"
-                        data-bs-parent="#accordionExample"
-                    >
+        <div className="container accordion-container">
+            <Accordion>
+                <Accordion.Item eventKey={authorId}>
+                    <Accordion.Header>{name}</Accordion.Header>
+                    <Accordion.Body>
                         <p>Author Details</p>
-                        <ul>
+                        <ol>
                             <li>Data of Birth: {birthDate}</li>
                             <li>Top Work: {topWork}</li>
                             <li>Total Books: {totalBooks}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                        </ol>
+                    </Accordion.Body>
+                </Accordion.Item>
+            </Accordion>
         </div>
     );
 };
