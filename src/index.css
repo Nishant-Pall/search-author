@@ -9,6 +9,20 @@
     width: 100%;
 }
 
+.accordion {
+    width: 50%;
+}
+
+.accordion p {
+    display: flex;
+    margin: 1em;
+    justify-content: left;
+}
+.accordion li {
+    display: flex;
+    justify-content: left;
+}
+
 .card .card-body {
     width: 300px;
 }
