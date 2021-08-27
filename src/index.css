@@ -41,6 +41,7 @@ body,
     justify-content: center;
     text-align: center;
     align-items: center;
+    margin-right: 1em;
 }
 
 .output-row {
