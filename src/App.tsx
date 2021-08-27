@@ -21,8 +21,6 @@ const App: FC = (props: Props) => {
             }
         );
         setResponse(response.data.docs);
-        // console.log(response.data.docs);
-        console.log(typeof response.data.docs[0].work_count);
     };
 
     return (
