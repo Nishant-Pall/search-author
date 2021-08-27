@@ -49,11 +49,11 @@ const App: FC = (props: Props) => {
                     </form>
                 </div>
             </div>
-            <div className="row">
+            <div className="row output-row">
                 <div className="col">
                     {response.map((author: any, index: number) => {
                         return (
-                            <div key={index}>
+                            <div className="output-col" key={index}>
                                 <Card
                                     name={author.name}
                                     authorIndex={index}

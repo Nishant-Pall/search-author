@@ -19,7 +19,7 @@ const Card: FC<Props> = ({
     const authorId: string = String(authorIndex);
 
     return (
-        <div className="container accordion-container">
+        <div className="accordion-container">
             <Accordion>
                 <Accordion.Item eventKey={authorId}>
                     <Accordion.Header>{name}</Accordion.Header>
